@@ -14,7 +14,9 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   login() {
+    if(this.userId.value) {
     this.userService.userId = this.userId.value;
-    this.router.navigate(['/user-form'])
+    this.router.navigate(['/dashboard'])
+    }
   }
 }

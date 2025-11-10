@@ -1,7 +1,25 @@
-  <div>
+  <!-- <div>
     <label>User Id</label>
     <input type="text" [formControl]="userId" />
   </div>
   <div>
     <button (click)="login()">Login</button>
+  </div> -->
+
+  <div class="h-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-4">
+        <div class="mb-3">
+            <label class="form-label fw-semibold">User Id</label>
+            <input
+              type="text"
+              [formControl]="userId"
+              class="form-control form-control-lg"
+              placeholder="Enter User Id"
+            />
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" [disabled]="!userId.value" (click)="login()">Login</button>
+    </div>
   </div>
+</div>

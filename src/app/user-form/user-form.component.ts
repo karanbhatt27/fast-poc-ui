@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
@@ -10,6 +10,7 @@ import { UserService } from './user.service';
   styleUrls: ['./user-form.component.scss'],
 })
 export class UserFormComponent implements OnInit {
+  @Output() formCompleted = new EventEmitter<boolean>();
   form!: FormGroup;
   userId!: number;
   lastValues: any = {};
@@ -21,18 +22,23 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.userService.userId;
     this.form = this.fb.group({
-      first_name: [''],
-      last_name: [''],
-      email: [''],
-      address: [''],
-      phone: [''],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
+      phone: ['', Validators.required],
     });
 
     this.loadUserForm();
 
     this.form.valueChanges
       .pipe(debounceTime(500), distinctUntilChanged())
-      .subscribe((values) => this.detectAndSaveChanges(values));
+      .subscribe((values) => this.detectAndSaveChanges(values))
+
+      this.form.statusChanges.pipe(debounceTime(300)).subscribe(status => {
+      const isComplete = status === 'VALID';
+      this.formCompleted.emit(isComplete);
+    });
   }
 
   loadUserForm() {
