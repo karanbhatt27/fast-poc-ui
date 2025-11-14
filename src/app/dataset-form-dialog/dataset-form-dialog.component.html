@@ -1,0 +1,88 @@
+<h2 mat-dialog-title>Dataset D{{ data.index }}</h2>
+
+<mat-dialog-content>
+<div class="container mt-2">
+    <div class="card-body p-4">
+      <form [formGroup]="form" class="needs-validation">
+        <div class="row mb-3">
+          <div class="col-md-6">
+
+           <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Current logical size(Tib)</mat-label>
+            <input matInput
+              type="number"
+              formControlName="s0"
+            />
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+           <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Data Reduction Ratio</mat-label>
+            <input matInput
+              type="number"
+              formControlName="drr"
+            />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+         <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Years to project</mat-label>
+          <input matInput
+            type="number"
+            formControlName="y"
+          />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+         <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Yearly growth(%)</mat-label>
+          <input matInput
+          type="number"
+            formControlName="g"
+          />
+          </mat-form-field>
+        </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-6">
+         <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Daily change rate</mat-label>
+          <input matInput
+            type="number"
+            formControlName="r_day"
+          />
+          </mat-form-field>
+        </div>
+
+          <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Snapshots retained</mat-label>
+          <input matInput
+            type="number"
+            formControlName="n_snap"
+          />
+          </mat-form-field>
+        </div>
+      </div>
+      </form>
+
+      <!-- <div class="text-end">
+        <small [ngClass]="savingStatusClass" class="fw-semibold">
+          {{ savingMessage }}
+        </small>
+      </div> -->
+    </div>
+</div>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Done</button>
+</mat-dialog-actions>

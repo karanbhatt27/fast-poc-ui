@@ -8,54 +8,69 @@
       <form [formGroup]="form" class="needs-validation">
         <div class="row mb-3">
           <div class="col-md-6">
-            <label class="form-label fw-semibold">First Name</label>
+            <label class="form-label fw-semibold">Current logical size(Tib)</label>
             <input
-              type="text"
-              formControlName="first_name"
+              type="number"
+              formControlName="s0"
               class="form-control form-control-lg"
-              placeholder="Enter first name"
+              placeholder="Enter Current logical size(Tib)"
             />
           </div>
 
           <div class="col-md-6">
-            <label class="form-label fw-semibold">Last Name</label>
+            <label class="form-label fw-semibold">Data Reduction Ratio</label>
             <input
-              type="text"
-              formControlName="last_name"
+              type="number"
+              formControlName="drr"
               class="form-control form-control-lg"
-              placeholder="Enter last name"
+              placeholder="Enter Data Reduction Ratio"
             />
           </div>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Email</label>
+        <div class="row mb-3">
+          <div class="col-md-6">
+          <label class="form-label fw-semibold">Years to project</label>
           <input
-            type="email"
-            formControlName="email"
+            type="number"
+            formControlName="y"
             class="form-control form-control-lg"
-            placeholder="Enter email"
+            placeholder="Enter Years to project"
           />
         </div>
 
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Address</label>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Yearly growth(%)</label>
           <input
-            formControlName="address"
+          type="number"
+            formControlName="g"
             class="form-control form-control-lg"
-            placeholder="Enter address"
+            placeholder="Enter Yearly growth(%)"
+          />
+        </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Daily change rate</label>
+          <input
+            type="number"
+            formControlName="r_day"
+            class="form-control form-control-lg"
+            placeholder="Enter Daily change rate"
           />
         </div>
 
-        <div class="mb-4">
-          <label class="form-label fw-semibold">Phone</label>
+          <div class="col-md-6">
+          <label class="form-label fw-semibold">Snapshots retained</label>
           <input
-            type="text"
-            formControlName="phone"
+            type="number"
+            formControlName="n_snap"
             class="form-control form-control-lg"
-            placeholder="Enter phone number"
+            placeholder="Enter Snapshots retained"
           />
         </div>
+      </div>
       </form>
 
       <div class="text-end">

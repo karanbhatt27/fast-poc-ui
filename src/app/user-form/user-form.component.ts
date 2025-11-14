@@ -22,11 +22,12 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.userService.userId;
     this.form = this.fb.group({
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', Validators.required],
-      phone: ['', Validators.required],
+      s0: ['', Validators.required],
+      g: ['', Validators.required],
+      y: ['', [Validators.required]],
+      r_day: ['', Validators.required],
+      n_snap: ['', Validators.required],
+      drr: ['', Validators.required],
     });
 
     this.loadUserForm();
@@ -69,7 +70,7 @@ export class UserFormComponent implements OnInit {
   autoSave(fieldName: string, fieldValue: any) {
     this.savingMessage = 'Saving...';
     const payload = {
-      user_id: this.userId,
+      user_id: Number(this.userId),
       field_name: fieldName,
       field_value: fieldValue,
     };

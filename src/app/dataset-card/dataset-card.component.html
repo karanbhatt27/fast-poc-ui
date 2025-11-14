@@ -1,0 +1,11 @@
+<mat-card class="dataset-card">
+  <mat-card-title>Dataset {{ dataset.name }}</mat-card-title>
+  <mat-card-content>
+    <pre>{{ dataset | json }}</pre>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="edit.emit()">Edit</button>
+    <button mat-button color="warn" (click)="delete.emit()">Delete</button>
+  </mat-card-actions>
+</mat-card>

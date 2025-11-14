@@ -17,6 +17,7 @@
               class="form-control form-control-lg"
               placeholder="Enter User Id"
             />
+            <div class="text-danger" *ngIf="loginError">Please enter valid User Id.</div>
         </div>
         <div class="d-grid">
             <button class="btn btn-primary btn-lg" [disabled]="!userId.value" (click)="login()">Login</button>

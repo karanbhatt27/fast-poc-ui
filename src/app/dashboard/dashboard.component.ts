@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   isUserFormComplete = false
+  isUserDetailLoaded = false;
 
   constructor() { }
 
@@ -15,6 +17,12 @@ export class DashboardComponent implements OnInit {
 
   handleFormCompletion(isComplete: boolean) {
     this.isUserFormComplete = isComplete;
+  }
+
+    onTabChange(event: MatTabChangeEvent) {
+    if (event.index === 1) {
+      this.isUserDetailLoaded = true;
+    } else this.isUserDetailLoaded = false;
   }
 
 }

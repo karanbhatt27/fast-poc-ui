@@ -1,0 +1,14 @@
+<div class="p-3">
+  <button mat-raised-button color="primary" (click)="addDataset()">
+    Add Dataset
+  </button>
+
+  <div class="dataset-list mt-3">
+    <app-dataset-card
+      *ngFor="let item of datasets"
+      [dataset]="item"
+      (edit)="openEdit(item)"
+      (delete)="deleteDataset(item.id)">
+    </app-dataset-card>
+  </div>
+</div>

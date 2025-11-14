@@ -21,7 +21,7 @@ export class ResultComponent implements OnInit {
 
   loadResult() {
     this.http
-      .get<any>(`http://localhost:8000/api/load-form/${this.userId}`)
+      .get<any>(`http://localhost:8000/api/load-result/${this.userId}`)
       .subscribe({
         next: (data) => {
           if (data) this.result = data;

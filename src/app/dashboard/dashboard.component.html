@@ -1,10 +1,13 @@
 <div class="container mt-4">
-  <mat-tab-group>
-    <mat-tab label="User Form">
-      <app-user-form (formCompleted)="handleFormCompletion($event)"></app-user-form>
+  <mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Capacity Parameter">
+      <!-- <app-user-form (formCompleted)="handleFormCompletion($event)"></app-user-form> -->
+      <app-capacity-parameter></app-capacity-parameter>
     </mat-tab>
     <mat-tab label="Result" [disabled]="!isUserFormComplete">
+        <ng-container *ngIf="isUserDetailLoaded">
       <app-result></app-result>
+        </ng-container>
     </mat-tab>
   </mat-tab-group>
 </div>
